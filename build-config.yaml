@@ -1,0 +1,16 @@
+kind: "BuildConfig"
+apiVersion: "v1"
+metadata:
+  name: "example-project-build" 
+spec:
+  runPolicy: "Serial" 
+  strategy: 
+    dockerStrategy:
+      dockerfilePath: "Dockerfile"
+  source: 
+    git:
+      uri: "http://localhost:10080/root/example-project-repo/"
+  output: 
+    to:
+      kind: "ImageStreamTag"
+      name: "example-image:latest"
